@@ -1,1 +1,473 @@
+/**
+ * Theme Name: Urban Cartel
+ * Theme URI: https://yourwebsite.com/urban-cartel
+ * Author: Your Name
+ * Author URI: https://yourwebsite.com
+ * Description: Urban Cartel is a modern, flexible WordPress theme designed for contemporary businesses and creative professionals. The theme features customizable layouts, advanced header options, and comprehensive styling capabilities.
+ * Version: 1.0.0
+ * License: GNU General Public License v2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: urbancartel
+ * Tags: custom-header, custom-menu, featured-images, threaded-comments, translation-ready
+ *
+ * This theme, like WordPress, is licensed under the GPL.
+ * Use it to make something cool, have fun, and share what you've learned with others.
+ *
+ * Urban Cartel is based on Underscores https://underscores.me/, (C) 2012-2023 Automattic, Inc.
+ *
+ * Styles Index:
+ * 1. Variables and Root Settings
+ * 2. Typography
+ * 3. Header Styles
+ *    - Default Header
+ *    - Centered Header
+ *    - Transparent Header
+ * 4. Navigation
+ * 5. Layout Components
+ * 6. Footer Styles
+ * 7. Responsive Design
+ * 8. Utility Classes
+ * 9. Widget Styles
+ * 10. Custom Components
+ *
+ * Resources:
+ * Bootstrap v5.3.0 - https://getbootstrap.com
+ * Bootstrap Icons v1.7.2 - https://icons.getbootstrap.com
+ *
+ * Recommended screen sizes for responsive design:
+ * - Mobile: 320px - 480px
+ * - Tablet: 481px - 768px
+ * - Desktop: 769px - 1024px
+ * - Large Desktop: 1025px and above
+ */
 
+/** Header Transparent Styles **/
+.header-transparent {
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+    background: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.header-transparent .navbar {
+    background-color: transparent;
+}
+
+.header-transparent .navbar-dark {
+    background: transparent;
+}
+
+.header-transparent .navbar-dark .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.header-transparent .navbar-dark .nav-link:hover,
+.header-transparent .navbar-dark .nav-link:focus {
+    color: #ffffff;
+}
+
+.header-transparent .site-title a,
+.header-transparent .site-description {
+    color: #ffffff;
+}
+
+/* Add a background when scrolling for better readability */
+.header-transparent.scrolled {
+    background: rgba(0, 0, 0, 0.8);
+    transition: background-color 0.3s ease;
+}
+
+/** General Styles **/
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/** Header Styles **/
+.site-header {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+    background-color: var(--header-bg-color, #ffffff);
+}
+
+/* Logo/Branding Styles */
+.site-branding {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.site-title a {
+    color: var(--header-text-color, #000000);
+    text-decoration: none;
+}
+
+.site-description {
+    margin: 0.25rem 0 0;
+    font-size: 0.875rem;
+    color: var(--header-text-color, #666666);
+}
+
+.custom-logo-link {
+    max-width: 200px;
+    height: auto;
+    display: block;
+}
+
+.custom-logo {
+    width: 100%;
+    height: auto;
+}
+
+/* Navigation Styles */
+.navbar {
+    padding: 0;
+}
+
+.navbar-nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-item {
+    margin: 0 0.5rem;
+}
+
+.nav-link {
+    padding: 0.5rem;
+    color: var(--header-text-color, #000000);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: var(--header-link-hover-color, #0066cc);
+}
+
+/* Dropdown Styles */
+.dropdown-menu {
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.dropdown-item {
+    padding: 0.5rem 1rem;
+    color: var(--header-text-color, #000000);
+}
+
+/* Mobile Menu Styles */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background-color: #ffffff;
+        padding: 1rem;
+        border-radius: 0.25rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .nav-item {
+        margin: 0;
+    }
+
+    .nav-link {
+        padding: 0.5rem 0;
+    }
+
+    .dropdown-menu {
+        border: none;
+        box-shadow: none;
+        padding-left: 1rem;
+    }
+}
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+/* Centered Header Specific Styles */
+.header-centered .navbar-brand {
+    margin-right: 0;
+}
+
+.header-centered .nav-link {
+    text-align: center;
+}
+
+/* Transparent Header Specific Styles */
+.header-transparent .navbar {
+    padding: 1rem 0;
+}
+
+.header-transparent .navbar.scrolled {
+    padding: 0.5rem 0;
+}
+
+.header-transparent .nav-link {
+    color: rgba(255,255,255,0.9) !important;
+}
+
+.header-transparent .nav-link:hover {
+    color: #fff !important;
+}
+
+/** Footer Styles **/
+.site-footer {
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Widget Footer Styles */
+.footer-widgets {
+    font-size: 0.95rem;
+}
+
+.footer-widget-area {
+    margin-bottom: 2rem;
+}
+
+.widget-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.widget-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #007bff;
+}
+
+.footer-widgets ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.footer-widgets ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-widgets a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-widgets a:hover {
+    color: #007bff;
+}
+
+/* Minimal Footer Styles */
+.footer-minimal {
+    background-color: #343a40;
+}
+
+.footer-minimal .social-icon {
+    color: rgba(255,255,255,0.8);
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.footer-minimal .social-icon:hover {
+    color: #fff;
+}
+
+/** Responsive Menu Styles **/
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        padding: 1rem 0;
+    }
+    
+    .header-centered .navbar-toggler {
+        display: block;
+        margin: 0.5rem auto;
+    }
+    
+    .dropdown-menu {
+        border: none;
+        padding: 0.5rem 0;
+        background-color: transparent;
+    }
+    
+    .header-transparent .dropdown-menu {
+        background-color: rgba(0,0,0,0.1);
+    }
+}
+
+/* Custom Bootstrap Overrides */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/** Widget Styles **/
+.widget {
+    margin-bottom: 2rem;
+}
+
+.widget ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.widget ul li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.widget ul li:last-child {
+    border-bottom: none;
+}
+
+/** Top Bar **/
+.topbar {
+    width: 100%;
+}
+
+.topbar .row {
+    min-height: inherit;
+}
+
+.topbar-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    height: 100%;
+    align-items: center;
+}
+
+.topbar-menu li {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .topbar .col-md-4 {
+        justify-content: center !important;
+        padding: 5px 0;
+    }
+    
+    .topbar-menu {
+        justify-content: center;
+    }
+
+    .topbar.compact-mobile {
+        min-height: 30px !important;
+        line-height: 28px !important;
+        font-size: 0.875rem;
+    }
+    .topbar.compact-mobile .widget {
+        margin-bottom: 0;
+    }
+}
+
+/** Social Icons **/
+.social-icons {
+    display: inline-block;
+}
+
+.social-icons .list-inline-item {
+    margin-right: 0.5rem;
+}
+
+.social-icons .list-inline-item:last-child {
+    margin-right: 0;
+}
+
+.social-icons a {
+    color: inherit;
+    font-size: 1.2rem;
+    transition: opacity 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    .social-icons {
+        text-align: center;
+    }
+}
+
+/** Contact Info Styles **/
+.contact-info {
+    display: inline-block;
+}
+
+.contact-info .list-inline-item {
+    margin-right: 1rem;
+}
+
+.contact-info .list-inline-item:last-child {
+    margin-right: 0;
+}
+
+.contact-link {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.contact-link:hover {
+    opacity: 0.7;
+    text-decoration: none;
+    color: inherit;
+}
+
+.contact-item,
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-info i {
+    font-size: 1rem;
+}
+
+.contact-label {
+    font-weight: 500;
+    margin-right: 0.25rem;
+}
+
+@media (max-width: 768px) {
+    .contact-info {
+        text-align: center;
+        width: 100%;
+    }
+
+    .contact-info .list-inline-item {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .contact-info .list-inline-item:last-child {
+        margin-bottom: 0;
+    }
+}
